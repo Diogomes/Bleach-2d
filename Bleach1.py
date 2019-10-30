@@ -2,11 +2,16 @@ import pygame as pyg
 
 def main():
     pyg.init()
-    tela = pyg.display.set_mode([800, 800])
+    tela = pyg.display.set_mode([500, 500])
     pyg.display.set_caption("Bleach Inicio")
     relogio = pyg.time.Clock()
     cor_branca = (255,255,255)
+    cor_preta = (100,100,100)
     sup = pyg.Surface((100, 100))
+    sup2 = pyg.Surface((50,50))
+    sup2.fill(cor_preta)
+    
+    ret = pyg.Rect (10, 10, 45, 45)
     
     sair = False
 
@@ -14,19 +19,27 @@ def main():
         for event in pyg.event.get():
             if event.type == pyg.QUIT:
                 sair = True
+            #if event.type ==pyg.MOUSEBUTTONDOWN:
                 
+'''
+Butões interação com o personagem
+'''
             if event.type == pyg.KEYDOWN:
                 if event.key == pyg.K_LEFT:
-                    sup.move_ip(-10,0)
+                    ret.move_ip(-10,0)
                 if event.key == pyg.K_RIGHT:
-                    sup.move_ip(10,0)
+                    ret.move_ip(10,0)
                 if event.key == pyg.K_UP:
-                    sup.move_ip(0,-10)
+                    ret.move_ip(0,-10)
                 if event.key == pyg.K_DOWN:
-                    sup.move_ip(0,10)
+                    ret.move_ip(0,10)
+                if event.key == pyg.K_w:
+                    ret.move_ip(0,10)
         relogio.tick(28)
         tela.fill(cor_branca)
         tela.blit(sup, (50, 50))
+        tela.blit(sup2,[10, 10])
+        pyg.draw.rect(tela, cor_preta, ret)
         pyg.display.update()
     pyg.quit()
 main()
