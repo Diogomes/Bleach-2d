@@ -33,8 +33,20 @@ Butões interação com o personagem
                     ret.move_ip(0,-10)
                 if event.key == pyg.K_DOWN:
                     ret.move_ip(0,10)
-                if event.key == pyg.K_w:
-                    ret.move_ip(0,10)
+                #if event.key == pyg.K_w:
+                    #ret.move_ip(0,10)
+                #if event.key == pyg.K_a:
+                    #ret.move_ip(0,10)
+                #if event.key == pyg.K_d:
+                    #ret.move_ip(0,10)
+                #if event.key == pyg.K_s:
+                    #ret.move_ip(0,10)
+                #if event.key == pyg.K_j:
+                    #ret.move_ip(0,10)
+                #if event.key == pyg.K_i:
+                    #ret.move_ip(0,10)
+                #if event.key == pyg.K_l:
+                    #ret.move_ip(0,10)
         relogio.tick(28)
         tela.fill(cor_branca)
         tela.blit(sup, (50, 50))
