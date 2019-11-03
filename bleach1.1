@@ -1,6 +1,7 @@
 import math, random, sys
 import pygame as pyg
 from pyg.locals import *
+from PIL import Image
 
 #DEFINIÇÃO DA TELA
 def events():
@@ -25,7 +26,7 @@ branco = (255, 255, 255, 255)
     
 class spritesheet:
     def __init__(self, filename, cols, rows):
-        self.sheet = pyg.image.load("1Ichigo Kurosaki.png")
+        self.sheet = pyg.Image.load("1Ichigo Kurosaki.png")
         
         self.cols = cols
         self.rows = rows
@@ -44,19 +45,39 @@ class spritesheet:
     def draw(self, sufarce, cellindex, x, y, handle = 0):
         sufarce.blit(self.sheet, (x + self.handle[handle][0], y + self.handle[handle][1], self.cells[cellindex])
 
-s = spritesheet.open("1Ichigo Kurosaki.png",7,4)
+s = pyg.Image.open("1Ichigo Kurosaki.png",1)
+
         
-CENTER_HANDLE = 0
+CENTER_HANDLE = 4
  
 index = 0
 
+img.convert()
+rect = img.get_rect()
+rect.center = w//2, h//2
+moving =False
+while running:
+    for eventinpygame.event.get():
+        if event.type == QUIT:
+            running =False
+        elif event.type == MOUSEBUTTONDOWN:
+            if rect.collidepoint(event.pos):
+                moving = True
+        elif event.type == MOUSEBUTTONUP:
+            moving = False
+        elif event.type == MOUSEMOTION and moving: 
+            rect.move_ip(event.rel)
+    screen.fill(branco)
+    screen.blit(img, rect)
+    pyg.draw.rect(screen, RED, rect, 1)
+    pyg.display.update()
+    pyg.quit()
 while True:
     events()
     s.draw(DS, index % s.totalCellCout, HL, HH, CENTER_HANDLE)
     index +=1
-    pyg.draw.circle(DS, branco, (HL, HH),2,0)
+    pyg.draw.rect(DS, branco, (HL, HH),2,0)
     pyg.display.update()
     CLOCK.tick(FPS)
     DS.fill(preto)
 main()
-
