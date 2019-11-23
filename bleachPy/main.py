@@ -1,19 +1,42 @@
-import pygame
-pygame.init()
+import pygame as pyg
+pyg.init()
 
-win = pygame.display.set_mode((500,480))
+win = pyg.display.set_mode((1200,900))
 
-pygame.display.set_caption("First Game")
+pyg.display.set_caption("Bleach Fight")
 
-walkRight = [pygame.image.load('sprites/ichigo/ichigoWalk_17.png'), pygame.image.load('sprites/ichigo/ichigoWalk_18.png'), pygame.image.load('sprites/ichigo/ichigoWalk_19.png'), pygame.image.load('sprites/ichigo/ichigoWalk_20.png'), pygame.image.load('sprites/ichigo/ichigoWalk_21.png'), pygame.image.load('sprites/ichigo/ichigoWalk_22.png'), pygame.image.load('sprites/ichigo/ichigoWalk_23.png'), pygame.image.load('sprites/ichigo/ichigoWalk_24.png'), pygame.image.load('sprites/ichigo/ichigoWalk_25.png')]
-walkLeft  = [pygame.image.load('sprites/ichigo/ichigoWalk_17.png'), pygame.image.load('sprites/ichigo/ichigoWalk_18.png'), pygame.image.load('sprites/ichigo/ichigoWalk_19.png'), pygame.image.load('sprites/ichigo/ichigoWalk_20.png'), pygame.image.load('sprites/ichigo/ichigoWalk_21.png'), pygame.image.load('sprites/ichigo/ichigoWalk_22.png'), pygame.image.load('sprites/ichigo/ichigoWalk_23.png'), pygame.image.load('sprites/ichigo/ichigoWalk_24.png'), pygame.image.load('sprites/ichigo/ichigoWalk_25.png')]
-jump      = [pygame.image.load('sprites/ichigo/ichigo_jump_47.png'), pygame.image.load('sprites/ichigo/ichigo_jump_48.png'), pygame.image.load('sprites/ichigo/ichigo_jump_49.png'), pygame.image.load('sprites/ichigo/ichigo_jump_50.png'), pygame.image.load('sprites/ichigo/ichigo_jump_51.png')]
-ichigoStrongAtack = [pygame.image.load('sprites/ichigo/ichigo_StrongAtack_1.png'), pygame.image.load('sprites/ichigo/ichigo_StrongAtack_2.png'), pygame.image.load('sprites/ichigo/ichigo_StrongAtack_3.png'), pygame.image.load('sprites/ichigo/ichigo_StrongAtack_4.png'), pygame.image.load('sprites/ichigo/ichigo_StrongAtack_5.png'), pygame.image.load('sprites/ichigo/ichigo_StrongAtack_6.png'), pygame.image.load('sprites/ichigo/ichigo_StrongAtack_7.png'), pygame.image.load('sprites/ichigo/ichigo_StrongAtack_8.png'), pygame.image.load('sprites/ichigo/ichigo_StrongAtack_9.png')]
-ichigo_WeakAtack = [pygame.image.load('sprites/ichigo/ichigo_WeakAtack_1.png'),pygame.image.load('sprites/ichigo/ichigo_WeakAtack_2.png'),pygame.image.load('sprites/ichigo/ichigo_WeakAtack_3.png')]
-bg        = pygame.image.load('sprites/ichigo/bg.png')
-char      = pygame.image.load('sprites/ichigo/ichigo_stance_1.png')
+walkRight = [pyg.image.load('sprites/ichigo/ichigoWalk_17.png'), pyg.image.load('sprites/ichigo/ichigoWalk_18.png'), pyg.image.load('sprites/ichigo/ichigoWalk_19.png'),
+             pyg.image.load('sprites/ichigo/ichigoWalk_20.png'), pyg.image.load('sprites/ichigo/ichigoWalk_21.png'), pyg.image.load('sprites/ichigo/ichigoWalk_22.png'),
+             pyg.image.load('sprites/ichigo/ichigoWalk_23.png'), pyg.image.load('sprites/ichigo/ichigoWalk_24.png'), pyg.image.load('sprites/ichigo/ichigoWalk_25.png')]
+Esquerda  = [pyg.image.load('sprites/ichigo/ichigoWalk_17.png'), pyg.image.load('sprites/ichigo/ichigoWalk_18.png'), pyg.image.load('sprites/ichigo/ichigoWalk_19.png'),
+             pyg.image.load('sprites/ichigo/ichigoWalk_20.png'), pyg.image.load('sprites/ichigo/ichigoWalk_21.png'), pyg.image.load('sprites/ichigo/ichigoWalk_22.png'),
+             pyg.image.load('sprites/ichigo/ichigoWalk_23.png'), pyg.image.load('sprites/ichigo/ichigoWalk_24.png'), pyg.image.load('sprites/ichigo/ichigoWalk_25.png')]
+jump      = [pyg.image.load('sprites/ichigo/ichigo_jump_47.png'), pyg.image.load('sprites/ichigo/ichigo_jump_48.png'), pyg.image.load('sprites/ichigo/ichigo_jump_49.png'),
+             pyg.image.load('sprites/ichigo/ichigo_jump_50.png'), pyg.image.load('sprites/ichigo/ichigo_jump_51.png')]
+ichigoStrongAtack = [pyg.image.load('sprites/ichigo/ichigo_StrongAtack_1.png'), pyg.image.load('sprites/ichigo/ichigo_StrongAtack_2.png'),
+                     pyg.image.load('sprites/ichigo/ichigo_StrongAtack_3.png'), pyg.image.load('sprites/ichigo/ichigo_StrongAtack_4.png'),
+                     pyg.image.load('sprites/ichigo/ichigo_StrongAtack_5.png'), pyg.image.load('sprites/ichigo/ichigo_StrongAtack_6.png'),
+                     pyg.image.load('sprites/ichigo/ichigo_StrongAtack_7.png'), pyg.image.load('sprites/ichigo/ichigo_StrongAtack_8.png'),
+                     pyg.image.load('sprites/ichigo/ichigo_StrongAtack_9.png')]
+ichigo_WeakAtack = [pyg.image.load('sprites/ichigo/ichigo_WeakAtack_1.png'),
+                    pyg.image.load('sprites/ichigo/ichigo_WeakAtack_2.png'),
+                    pyg.image.load('sprites/ichigo/ichigo_WeakAtack_3.png')]
+ichigoRun = [pyg.image.load('sprites/ichigo/ichigoRun_18.png'), pyg.image.load('sprites/ichigo/ichigoRun_19.png'),
+                    pyg.image.load('sprites/ichigo/ichigoRun_20.png'), pyg.image.load('sprites/ichigo/ichigoRun_21.png'),
+                    pyg.image.load('sprites/ichigo/ichigoRun_22.png'), pyg.image.load('sprites/ichigo/ichigoRun_23.png'),
+                    pyg.image.load('sprites/ichigo/ichigoRun_24.png'), pyg.image.load('sprites/ichigo/ichigoRun_25.png'),
+                    pyg.image.load('sprites/ichigo/ichigoRun_26.png'), pyg.image.load('sprites/ichigo/ichigoRun_27.png'),
+                    pyg.image.load('sprites/ichigo/ichigoRun_28.png'), pyg.image.load('sprites/ichigo/ichigoRun_29.png'),
+                    pyg.image.load('sprites/ichigo/ichigoRun_30.png'), pyg.image.load('sprites/ichigo/ichigoRun_31.png'),
+                    pyg.image.load('sprites/ichigo/ichigoRun_32.png'), pyg.image.load('sprites/ichigo/ichigoRun_33.png'),
+                    pyg.image.load('sprites/ichigo/ichigoRun_34.png'), pyg.image.load('sprites/ichigo/ichigoRun_35.png'),
+                    pyg.image.load('sprites/ichigo/ichigoRun_36.png'), pyg.image.load('sprites/ichigo/ichigoRun_37.png'),
+                    pyg.image.load('sprites/ichigo/ichigoRun_38.png'), pyg.image.load('sprites/ichigo/ichigoRun_39.png'),
+                    pyg.image.load('sprites/ichigo/ichigoRun_40.png')]
+bg        = pyg.image.load('sprites/ichigo/Academy.png')
+char      = pyg.image.load('sprites/ichigo/ichigo_stance_1.png')
 
-clock = pygame.time.Clock()
+clock = pyg.time.Clock()
 
 
 class player(object):
@@ -28,6 +51,7 @@ class player(object):
         self.right = False
         self.ichigoStrongAtack = False
         self.ichigoWeakAtack = False
+        self.ichigoRun = 20
         self.walkCount = 0
         self.jumpCount = 10
         self.strongAtack = 9
@@ -54,6 +78,9 @@ class player(object):
         elif self.ichigoWeakAtack:
             win.blit(ichigo_WeakAtack[self.weakAtack//3], (self.x,self.y))
             
+        elif self.ichigoRun:
+            win.blit(ichigoRun[self.ichigoRun//3], (self.x,self.y))
+            
         else:
             win.blit(char, (self.x,self.y))
 #---------------------------------------------------------------------------------------------            
@@ -61,52 +88,65 @@ def redrawGameWindow():
     win.blit(bg, (0,0))
     man.draw(win)
     
-    pygame.display.update()
+    pyg.display.update()
 
 
 #mainloop
-man = player(200, 410, 64,64)
+man = player(50, 490, 70,0)
 run = True
 while run:
     clock.tick(27)
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+    for event in pyg.event.get():
+        if event.type == pyg.QUIT:
             run = False
 
-    keys = pygame.key.get_pressed()
+    keys = pyg.key.get_pressed()
 
 
-    if keys[pygame.K_LEFT] and man.x > man.vel:
+    if keys[pyg.K_LEFT] and man.x > man.vel:
         man.x -= man.vel
         man.left = True
         man.right = False
         man.ichigoWeakAtack = False
         man.ichigoStrongAtack = False
-    elif keys[pygame.K_RIGHT] and man.x < 500 - man.width - man.vel:
+    elif keys[pyg.K_RIGHT] and man.x < 870 - man.width - man.vel:
         man.x += man.vel
         man.right = True
         man.left = False
         man.ichigoWeakAtack = False
         man.ichigoStrongAtack = False
-    elif keys[pygame.K_q]:
+    elif keys[pyg.K_q]:
         man.right = False
         man.left = False
         man.ichigoStrongAtack = True
         man.ichigoWeakAtack = False
 
-    elif keys[pygame.K_w]:
+    elif keys[pyg.K_e]:
         man.right = False
         man.left = False
         man.ichigoStrongAtack = False
         man.ichigoWeakAtack = True
+
+    elif keys[pyg.K_w]:
+        man.right = False
+        man.left = False
+        man.ichigoStrongAtack = False
+        man.ichigoWeakAtack = True
+        
+    elif keys[pyg.K_DOWN and pyg.K_RIGHT]:
+        man.right = False
+        man.left = False
+        man.ichigoStrongAtack = False
+        man.ichigoWeakAtack = True
+        man.ichigoRun = True
     else:
         man.right = False
         man.left = False
         man.walkCount = 0
         
     if not(man.isJump):
-        if keys[pygame.K_SPACE]:
+        if keys[pyg.K_SPACE]:
             man.isJump = True
             man.right = False
             man.left = False
@@ -124,4 +164,4 @@ while run:
             
     redrawGameWindow()
 
-pygame.quit()
+pyg.quit()
